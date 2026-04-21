@@ -1,19 +1,35 @@
-from ui.input_handler import GetData
+from ui.input_handler import GetOpAndNums, GetAnswer
+from ui.starter import starter
+
 from operations.math_core import Addition, Subtraction, Multiplication, Division
 
-a, op, b = GetData()
+from history.history import ShowHistory
 
-match op:
-    case '+':
-        res = Addition(a, b)
-    case '-':
-        res = Subtraction(a, b)
-    case '*':
-        res = Multiplication(a, b)
-    case '/':
-        res = Division(a, b)
+starter()
+result = 0
+last_result = 0
 
-print(res)
+while True:
+    answer = GetAnswer()
+    if answer == "Посчитать":
+        a, op, b = GetOpAndNums()
+
+        match op:
+            case '+':
+                result = Addition(a, b)
+            case '-':
+                result = Subtraction(a, b)
+            case '*':
+                result = Multiplication(a, b)
+            case '/':
+                result = Division(a, b)
+                
+        print(result)
+    elif answer == "История":
+        ShowHistory()
+    elif answer == "Выход":
+        break
+            
 
 
 
