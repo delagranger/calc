@@ -1,5 +1,5 @@
-from utils.get_data import GetData
-from utils.operations import Addition, Subtraction, Multiplication, Division
+from ui.input_handler import GetData
+from operations.math_core import Addition, Subtraction, Multiplication, Division
 
 a, op, b = GetData()
 
