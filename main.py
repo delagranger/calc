@@ -1,11 +1,12 @@
 from ui.input_handler import GetOpAndNums, GetAnswer
-from ui.starter import starter
+from ui.greeting import greeting
+from ui.farewell import farewell
 
 from operations.math_core import Addition, Subtraction, Multiplication, Division
 
 from history.history import ShowHistory
 
-starter()
+greeting()
 result = 0
 last_result = 0
 
@@ -25,11 +26,9 @@ while True:
                 result = Division(a, b)
                 
         print(result)
+        last_result, result = result, 0
     elif answer == "История":
         ShowHistory()
     elif answer == "Выход":
+        farewell()
         break
-            
-
-
-
