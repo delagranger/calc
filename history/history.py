@@ -32,7 +32,9 @@ def show_history():
     with open(history_file, "r", encoding="utf-8") as f:
         history = json.load(f)
 
-    print(history)
+    for operation in history:
+        print(json.dumps(operation, indent=4, ensure_ascii=False))
+        print("-" * 40)
     
 
 def update_history(expression, last_result):
