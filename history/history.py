@@ -2,7 +2,9 @@ import json
 import os
 from pathlib import Path
 
-def create_history_file():
+MAX_HISTORY_SIZE = 20
+
+def create_history_file():  
     app_dir = Path.home() / "AppData" / "Roaming" / "calc" # получение пути
     app_dir.mkdir(parents=True, exist_ok=True) 
     # создает папку по заданному пути
@@ -32,7 +34,9 @@ def show_history():
     with open(history_file, "r", encoding="utf-8") as f:
         history = json.load(f)
 
-    print(history)
+    for operation in history:
+        print(json.dumps(operation, indent=4, ensure_ascii=False))
+        print("-" * 40)
     
 
 def update_history(expression, last_result):
@@ -41,6 +45,9 @@ def update_history(expression, last_result):
 
     with open(history_file, "r", encoding="utf-8") as f:
         history = json.load(f)
+
+    if len(history) >= MAX_HISTORY_SIZE:
+        history = []
 
     history.append(new_data)
 
