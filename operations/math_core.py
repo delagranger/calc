@@ -1,16 +1,16 @@
-def Addition(a, b):
+def addition(a, b):
     return a + b
 
 
-def Subtraction(a, b):
+def subtraction(a, b):
     return a - b
 
 
-def Multiplication(a, b):
+def multiplication(a, b):
     return a * b
 
 
-def Division(a, b):
+def division(a, b):
     try:
         return a / b
     except ZeroDivisionError:

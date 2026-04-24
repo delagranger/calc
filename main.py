@@ -1,35 +1,45 @@
-from ui.input_handler import GetOpAndNums, GetAnswer
-from ui.starter import starter
+from history.history import show_history, update_history
 
-from operations.math_core import Addition, Subtraction, Multiplication, Division
+from operations.math_core import addition, subtraction, multiplication, division
 
-from history.history import ShowHistory
+from ui.input_handler import get_operation_and_operands, get_command
+from ui.output_handler import print_last_result, print_result, show_commands, greeting, farewell
 
-starter()
+from utils.validation import *
+
+greeting()
+show_commands()
+
 result = 0
 last_result = 0
 
 while True:
-    answer = GetAnswer()
-    if answer == "Посчитать":
-        a, op, b = GetOpAndNums()
+    print_last_result(last_result)
+    command = get_command()
+
+    if command == "Посчитать":
+        a, op, b = get_operation_and_operands(last_result)
 
         match op:
             case '+':
-                result = Addition(a, b)
+                result = addition(a, b)
             case '-':
-                result = Subtraction(a, b)
+                result = subtraction(a, b)
             case '*':
-                result = Multiplication(a, b)
+                result = multiplication(a, b)
             case '/':
-                result = Division(a, b)
+                result = division(a, b)
                 
-        print(result)
-    elif answer == "История":
-        ShowHistory()
-    elif answer == "Выход":
+        print_result(result)
+
+        expression = f"{a} {op} {b}"
+        last_result, result = result, 0
+
+        update_history(expression, last_result)
+    elif command == "История":
+        show_history()
+    elif command == "Выход":
+        farewell()
         break
-            
-
-
-
+    elif command == "help":
+        show_commands()
