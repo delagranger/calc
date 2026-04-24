@@ -1,6 +1,7 @@
 from history.history import show_history, update_history
 
-from operations.math_core import addition, subtraction, multiplication, division
+from maths.math_core import addition, subtraction, multiplication, division
+from maths.advanced_math import exponentiation, square_root, remainder_of_division, integer_division, modulus, fctr, change_of_sign
 
 from ui.input_handler import get_operation_and_operands, get_command
 from ui.output_handler import print_last_result, print_result, show_commands, greeting, farewell
@@ -29,6 +30,20 @@ while True:
                 result = multiplication(a, b)
             case '/':
                 result = division(a, b)
+            case '^':
+                result = exponentiation(a, b)
+            case 'sqrt':
+                result = square_root(a, b)
+            case '%':
+                result = remainder_of_division(a, b)
+            case '//':
+                result = integer_division(a, b)
+            case 'abs':
+                result = modulus(a)
+            case '!':
+                result = fctr(a)
+            case '+-':
+                result = change_of_sign(a)
                 
         print_result(result)
 
