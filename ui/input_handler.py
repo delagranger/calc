@@ -6,23 +6,26 @@ def get_operation_and_operands(last_result):
           2) Продвинутые: ^, sqrt, %, //
           3) Операции над одним числом: abs, !, +-
 
-Введите Enter в качестве первого числа, чтобы продолжить работу над предыдущим числом
+Введите ENTER в качестве первого числа, чтобы продолжить работу над предыдущим числом.
+    Впишите ВЫХОД, чтобы выйти из режима рассчета.
           """)
 
     a = input("Введите первое число: ")
     if a == "":
         a = last_result
+    elif a == "Выход":
+        return "Выход", None, None
     else:
         a = float(a)
 
     op = input("Введите операцию: ")
     if op in ["abs", "!", "+-"]:
-        return a, op, 0
+        return a, op, None
     
     b = float(input("Введите второе число: "))
     
     return a, op, b
 
 def get_command():
-    answer = input("Впишите команду (или help для просмотра команд): ")
+    answer = input("Впишите команду (или HELP для просмотра команд): ")
     return answer

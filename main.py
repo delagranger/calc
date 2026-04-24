@@ -19,38 +19,42 @@ while True:
     command = get_command()
 
     if command == "Посчитать":
-        a, op, b = get_operation_and_operands(last_result)
+        while True:
+            a, op, b = get_operation_and_operands(last_result)
 
-        match op:
-            case '+':
-                result = addition(a, b)
-            case '-':
-                result = subtraction(a, b)
-            case '*':
-                result = multiplication(a, b)
-            case '/':
-                result = division(a, b)
-            case '^':
-                result = exponentiation(a, b)
-            case 'sqrt':
-                result = square_root(a, b)
-            case '%':
-                result = remainder_of_division(a, b)
-            case '//':
-                result = integer_division(a, b)
-            case 'abs':
-                result = modulus(a)
-            case '!':
-                result = fctr(a)
-            case '+-':
-                result = change_of_sign(a)
-                
-        print_result(result)
+            if a == "Выход":
+                break
 
-        expression = f"{a} {op} {b}"
-        last_result, result = result, 0
+            match op:
+                case '+':
+                    result = addition(a, b)
+                case '-':
+                    result = subtraction(a, b)
+                case '*':
+                    result = multiplication(a, b)
+                case '/':
+                    result = division(a, b)
+                case '^':
+                    result = exponentiation(a, b)
+                case 'sqrt':
+                    result = square_root(a, b)
+                case '%':
+                    result = remainder_of_division(a, b)
+                case '//':
+                    result = integer_division(a, b)
+                case 'abs':
+                    result = modulus(a)
+                case '!':
+                    result = fctr(a)
+                case '+-':
+                    result = change_of_sign(a)
+                    
+            print_result(result)
 
-        update_history(expression, last_result)
+            expression = f"{a} {op} {b}"
+            last_result, result = result, 0
+
+            update_history(expression, last_result)
     elif command == "История":
         show_history()
     elif command == "Выход":
