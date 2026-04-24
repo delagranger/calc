@@ -14,11 +14,11 @@ result = 0
 last_result = 0
 
 while True:
-    print_last_result()
+    print_last_result(last_result)
     command = get_command()
 
     if command == "Посчитать":
-        a, op, b = get_operation_and_operands()
+        a, op, b = get_operation_and_operands(last_result)
 
         match op:
             case '+':
@@ -32,9 +32,10 @@ while True:
                 
         print_result(result)
 
+        expression = f"{a} {op} {b}"
         last_result, result = result, 0
-        
-        update_history(last_result)
+
+        update_history(expression, last_result)
     elif command == "История":
         show_history()
     elif command == "Выход":
