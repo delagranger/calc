@@ -1,10 +1,12 @@
 def print_last_result(last_result):
     print(f"... Последний результат: {last_result}")
 
+
 def print_result(result):
     print("-" * (24 + len(str(result))))
     print(f"... Результат операции: {result}")
     print("-" * (24 + len(str(result))))
+
 
 def show_commands():
     print("""
@@ -18,6 +20,7 @@ _________________
           """
           )
 
+
 def greeting():
     print("""
 ------------------------------
@@ -26,6 +29,7 @@ def greeting():
           """
           )
 
+
 def farewell():
     print("""
 ------------------------------
@@ -33,4 +37,5 @@ def farewell():
 ------------------------------
           """
           )
+    
     

@@ -5,7 +5,7 @@ from pathlib import Path
 MAX_HISTORY_SIZE = 20
 
 def create_history_file():  
-    app_dir = Path.home() / "AppData" / "Roaming" / "calc" # получение пути
+    app_dir = Path.home() / "AppData" / "Roaming" / "calc"  # получение пути
     app_dir.mkdir(parents=True, exist_ok=True) 
     # создает папку по заданному пути
     # parents = True - создает дополнительные папки, указанные в пути, 
@@ -14,7 +14,7 @@ def create_history_file():
 
     history_file = app_dir / "history.json" 
 
-    if not history_file.exists(): # проверяет наличие файла в директории
+    if not history_file.exists():  # проверяет наличие файла в директории
         with open(history_file, "w", encoding="utf-8") as f:
             json.dump([], f)
 
