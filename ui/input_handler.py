@@ -19,7 +19,7 @@ def get_operation_and_operands(last_result):
         try:
             a = float(a)
         except ValueError:
-            print("!!! Ошибка: Некорректные данные")
+            print("!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ")
             print("    Повторите ввод.")
             return None, None, None
 
@@ -27,14 +27,14 @@ def get_operation_and_operands(last_result):
     if op in ["abs", "!", "+-"]:
         return a, op, None
     elif op not in ["+", "-", "*", "/", '^', 'sqrt', '%', '//', 'abs', '!', '+-']:
-        print("!!! Ошибка: Некорректная операция")
+        print("!!! ОШИБКА: НЕКОРРЕКТНАЯ ОПЕРАЦИЯ")
         print("    Повторите ввод.")
         return None, None, None
     
     try:
         b = float(input("Введите второе число: "))
     except ValueError:
-        print("!!! Ошибка: Некорректные данные")
+        print("!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ")
         print("    Повторите ввод.")
         return None, None, None
     
@@ -43,7 +43,7 @@ def get_operation_and_operands(last_result):
 def get_command():
     answer = input("Впишите команду (или HELP для просмотра команд): ").lower()
     if not answer in ["help", "посчитать", "история", "выход"]:
-        print("!!! Ошибка: Неизвестная команда.")
+        print("!!! ОШИБКА: НЕИЗВЕСТНАЯ КОМАНДА")
         print("    Повторите ввод.")
     else:
         return answer
