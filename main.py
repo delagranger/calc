@@ -18,11 +18,11 @@ while True:
     print_last_result(last_result)
     command = get_command()
 
-    if command == "Посчитать":
+    if command == "посчитать":
         while True:
             a, op, b = get_operation_and_operands(last_result)
 
-            if a == "Выход":
+            if a == "выход":
                 break
 
             match op:
@@ -55,9 +55,9 @@ while True:
             last_result, result = result, 0
 
             update_history(expression, last_result)
-    elif command == "История":
+    elif command == "история":
         show_history()
-    elif command == "Выход":
+    elif command == "выход":
         farewell()
         break
     elif command == "help":

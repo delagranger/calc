@@ -10,22 +10,40 @@ def get_operation_and_operands(last_result):
     Впишите ВЫХОД, чтобы выйти из режима рассчета.
           """)
 
-    a = input("Введите первое число: ")
+    a = input("Введите первое число: ").lower()
     if a == "":
         a = last_result
-    elif a == "Выход":
-        return "Выход", None, None
+    elif a == "выход":
+        return "выход", None, None
     else:
-        a = float(a)
+        try:
+            a = float(a)
+        except ValueError:
+            print("!!! Ошибка: Некорректные данные")
+            print("    Повторите ввод.")
+            return None, None, None
 
     op = input("Введите операцию: ")
     if op in ["abs", "!", "+-"]:
         return a, op, None
+    elif op not in ["+", "-", "*", "/", '^', 'sqrt', '%', '//', 'abs', '!', '+-']:
+        print("!!! Ошибка: Некорректная операция")
+        print("    Повторите ввод.")
+        return None, None, None
     
-    b = float(input("Введите второе число: "))
+    try:
+        b = float(input("Введите второе число: "))
+    except ValueError:
+        print("!!! Ошибка: Некорректные данные")
+        print("    Повторите ввод.")
+        return None, None, None
     
     return a, op, b
 
 def get_command():
-    answer = input("Впишите команду (или HELP для просмотра команд): ")
-    return answer
+    answer = input("Впишите команду (или HELP для просмотра команд): ").lower()
+    if not answer in ["help", "посчитать", "история", "выход"]:
+        print("!!! Ошибка: Неизвестная команда.")
+        print("    Повторите ввод.")
+    else:
+        return answer
