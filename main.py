@@ -6,8 +6,6 @@ from maths.advanced_math import exponentiation, square_root, remainder_of_divisi
 from ui.input_handler import get_operation_and_operands, get_command
 from ui.output_handler import print_last_result, print_result, show_commands, greeting, farewell
 
-from utils.validation import *
-
 greeting()
 show_commands()
 
