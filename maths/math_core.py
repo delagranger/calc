@@ -14,4 +14,8 @@ def division(a, b):
     try:
         return a / b
     except ZeroDivisionError:
-        print("Ошибка: на ноль делить нельзя")
+            print(".................................")
+            print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+            print("    Повторите ввод.")
+            print(".................................")
+            return 0

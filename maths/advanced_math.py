@@ -1,19 +1,58 @@
 from math import pow, factorial
 
 def exponentiation(a, b):
-    return pow(a, b)
+    try:
+        return pow(a, b)
+    except ValueError:
+        print("..............................")
+        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print("..............................")
+        return 0
+    except (OverflowError, MemoryError):
+        print(".................................")
+        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(".................................")
+        return 0
 
 
 def square_root(a, b):
-    return pow(a, 1/b)
+    try:
+        return pow(a, 1/b)
+    except ValueError:
+        print("..............................")
+        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print("..............................")
+        return 0
+    except ZeroDivisionError:
+        print("...........................")
+        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print("...........................")
+        return 0
+    except (OverflowError, MemoryError):
+        print(".................................")
+        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(".................................")
+        return 0
 
 
 def remainder_of_division(a, b):
-    return a % b
+    try:
+        return a % b
+    except ZeroDivisionError:
+        print("............................")
+        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print("............................")
+        return 0
 
 
 def integer_division(a, b):
-    return a // b
+    try:
+        return a // b
+    except ZeroDivisionError:
+        print("............................")
+        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print("............................")
+        return 0
 
 
 def modulus(a):
@@ -21,10 +60,18 @@ def modulus(a):
 
 
 def fctr(a):
-    return factorial(int(a))
-
+    try:
+        return factorial(int(a))
+    except (OverflowError, MemoryError):
+        print(".................................")
+        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(".................................")
+        return 0
+    except ValueError:
+        print("..............................")
+        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print("..............................")
+        return 0
 
 def change_of_sign(a):
-    a -= a * 2
-    return a
-
+    return -a
