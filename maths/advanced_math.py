@@ -2,57 +2,58 @@ from math import pow, factorial
 
 def exponentiation(a, b):
     try:
-        return pow(a, b)
+        result = pow(a, b)
     except ValueError as e:
         print("..............................")
         print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
-        return 0
     except (OverflowError, MemoryError) as e:
         print(".................................")
         print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
-        return 0
+    else:
+        return result
 
 
 def square_root(a, b):
     try:
-        return pow(a, 1/b)
+        result = pow(a, 1/b)
     except ValueError as e:
         print("..............................")
         print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
-        return 0
     except ZeroDivisionError as e:
         print("...........................")
         print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("...........................")
-        return 0
     except (OverflowError, MemoryError) as e:
         print(".................................")
         print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
-        return 0
+    else:
+        return result
 
 
 def remainder_of_division(a, b):
     try:
-        return a % b
+        result = a % b
     except ZeroDivisionError as e:
         print("............................")
         print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("............................")
-        return 0
+    else:
+        return result
 
 
 def integer_division(a, b):
     try:
-        return a // b
+        result = a // b
     except ZeroDivisionError as e:
         print("............................")
         print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("............................")
-        return 0
+    else:
+        return result
 
 
 def modulus(a):
@@ -61,17 +62,17 @@ def modulus(a):
 
 def fctr(a):
     try:
-        return factorial(int(a))
+        result = factorial(int(a))
     except (OverflowError, MemoryError) as e:
         print(".................................")
         print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
-        return 0
     except ValueError as e:
         print("..............................")
         print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
-        return 0
+    else:
+        return result
 
 def change_of_sign(a):
     return -a

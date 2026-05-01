@@ -12,10 +12,11 @@ def multiplication(a, b):
 
 def division(a, b):
     try:
-        return a / b
+        result = a / b
     except ZeroDivisionError as e:
             print(".................................")
             print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
             print("    Повторите ввод.")
             print(".................................")
-            return 0
+    else:
+         return result
