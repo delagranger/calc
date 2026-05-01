@@ -13,9 +13,9 @@ def multiplication(a, b):
 def division(a, b):
     try:
         return a / b
-    except ZeroDivisionError:
+    except ZeroDivisionError as e:
             print(".................................")
-            print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+            print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
             print("    Повторите ввод.")
             print(".................................")
             return 0

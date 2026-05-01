@@ -22,9 +22,9 @@ def get_operation_and_operands(last_result):
     else:
         try:
             a = float(a)
-        except ValueError:
+        except ValueError as e:
             print(".................................")
-            print("!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ")
+            print(f"!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ ({e})")
             print("    Повторите ввод.")
             print(".................................")
             return None, None, None
@@ -41,9 +41,9 @@ def get_operation_and_operands(last_result):
     
     try:
         b = float(input("Введите второе число: "))
-    except ValueError:
+    except ValueError as e:
         print(".................................")
-        print("!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ")
+        print(f"!!! ОШИБКА: НЕКОРРЕКТНЫЕ ДАННЫЕ ({e})")
         print("    Повторите ввод.")
         print(".................................")
         return None, None, None

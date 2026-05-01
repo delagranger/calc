@@ -3,14 +3,14 @@ from math import pow, factorial
 def exponentiation(a, b):
     try:
         return pow(a, b)
-    except ValueError:
+    except ValueError as e:
         print("..............................")
-        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
         return 0
-    except (OverflowError, MemoryError):
+    except (OverflowError, MemoryError) as e:
         print(".................................")
-        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
         return 0
 
@@ -18,19 +18,19 @@ def exponentiation(a, b):
 def square_root(a, b):
     try:
         return pow(a, 1/b)
-    except ValueError:
+    except ValueError as e:
         print("..............................")
-        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
         return 0
-    except ZeroDivisionError:
+    except ZeroDivisionError as e:
         print("...........................")
-        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("...........................")
         return 0
-    except (OverflowError, MemoryError):
+    except (OverflowError, MemoryError) as e:
         print(".................................")
-        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
         return 0
 
@@ -38,9 +38,9 @@ def square_root(a, b):
 def remainder_of_division(a, b):
     try:
         return a % b
-    except ZeroDivisionError:
+    except ZeroDivisionError as e:
         print("............................")
-        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("............................")
         return 0
 
@@ -48,9 +48,9 @@ def remainder_of_division(a, b):
 def integer_division(a, b):
     try:
         return a // b
-    except ZeroDivisionError:
+    except ZeroDivisionError as e:
         print("............................")
-        print("!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ")
+        print(f"!!! ОШИБКА: ДЕЛЕНИЕ НА НОЛЬ ({e})")
         print("............................")
         return 0
 
@@ -62,14 +62,14 @@ def modulus(a):
 def fctr(a):
     try:
         return factorial(int(a))
-    except (OverflowError, MemoryError):
+    except (OverflowError, MemoryError) as e:
         print(".................................")
-        print("!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО")
+        print(f"!!! ОШИБКА: СЛИШКОМ БОЛЬШОЕ ЧИСЛО ({e})")
         print(".................................")
         return 0
-    except ValueError:
+    except ValueError as e:
         print("..............................")
-        print("!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН")
+        print(f"!!! ОШИБКА: РАССЧЕТ НЕВОЗМОЖЕН ({e})")
         print("..............................")
         return 0
 
